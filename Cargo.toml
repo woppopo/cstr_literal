@@ -2,3 +2,4 @@
 name = "cstr-literal"
 version = "0.1.0"
 edition = "2021"
+license = "CC0-1.0"
