@@ -1,5 +1,5 @@
 [package]
-name = "cstr-literal"
+name = "cstr_literal"
 version = "0.1.0"
 edition = "2021"
 license = "CC0-1.0"

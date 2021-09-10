@@ -1,10 +1,10 @@
-# cstr-literal
+# cstr_literal
 
 ## Usage
 
 ```
 [dependencies]
-cstr-literal = { git = "https://github.com/woppopo/cstr-literal" }
+cstr_literal = { git = "https://github.com/woppopo/cstr_literal" }
 ```
 
 ```rust
