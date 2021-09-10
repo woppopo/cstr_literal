@@ -1,20 +1,16 @@
-#![feature(const_raw_ptr_deref)]
-
-use std::ffi::CStr;
+#![feature(const_cstr_unchecked)]
 
 #[macro_export]
 macro_rules! cstr {
     ($s:literal) => {
-        $crate::cstr_from_bytes(concat!($s, '\0').as_bytes())
+        unsafe { std::ffi::CStr::from_bytes_with_nul_unchecked(concat!($s, '\0').as_bytes()) }
     };
-}
-
-pub const fn cstr_from_bytes(bytes: &[u8]) -> &CStr {
-    unsafe { &*(bytes as *const [u8] as *const CStr) }
 }
 
 #[test]
 fn test() {
+    use std::ffi::CStr;
+
     const TEST_STRING: &'static str = "It's a\ntest string\tyay";
     const TEST_STRING_C: &'static CStr = cstr!("It's a\ntest string\tyay");
 
