@@ -5,11 +5,12 @@ use std::ffi::CStr;
 #[macro_export]
 macro_rules! cstr {
     ($s:literal) => {
-        $crate::cstr_from_bytes(concat!($s, '\0').as_bytes())
+        $crate::_cstr_from_bytes(concat!($s, '\0').as_bytes())
     };
 }
 
-pub const fn cstr_from_bytes(bytes: &[u8]) -> &CStr {
+#[doc(hidden)]
+pub const fn _cstr_from_bytes(bytes: &[u8]) -> &CStr {
     unsafe { std::ffi::CStr::from_bytes_with_nul_unchecked(bytes) }
 }
 
